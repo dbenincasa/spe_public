@@ -74,3 +74,57 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Develop
 
+## Monday 26 Septeber 2016
+
+*Morning*
+
+ - Compiled Languagies.
+ - My first C code.
+ - My first C++ code.
+    - C and C++ differences. 
+ - My first Fortran code.
+
+*Afternoon*
+
+ - Buffer for developing.
+
+## Tuesday 27 Septeber 2016
+
+*Morning*
+
+ - Intro on data structures.
+    - Pointers C, C++, fortran.
+    - Arrays C, C++, fortran.
+
+*Afternoon*
+
+ - Matrix Vector Multiplication C, C++, fortran.
+
+## Wednesday 28 Septeber 2016
+
+*Morning*
+
+ - Makefile
+ - Work on the matrix vector multiplication.
+
+*Afternoon*
+
+ - CMake to develop a library. 
+
+## Thursday 29 Septeber 2016
+
+*Morning*
+
+ - Read Matrix from Python
+ - Implement conjugate gradient in C, C++, Fortran.
+
+*Afternoon*
+
+ - Develop
+
+## Friday 30 Septeber 2016
+
+*Morning*
+
+ - Buffer
+
