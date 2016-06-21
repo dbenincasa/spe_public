@@ -52,7 +52,7 @@ The stack is faster because the access pattern makes it trivial to allocate and 
 
 ## Example
 
-```
+```c
 int foo()
 {
   char *pBuffer; //<--nothing allocated yet (excluding the pointer itself, which is allocated here on the stack).
