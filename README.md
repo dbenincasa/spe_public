@@ -94,7 +94,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
 *Morning*
 
- - Intro on data structures.
+ - [Intro on data structures.](https://github.com/sissa/scientific_programming_environment/tree/master/data_structures)
     - Pointers C, C++, fortran.
     - Arrays C, C++, fortran.
 
