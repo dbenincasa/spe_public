@@ -29,14 +29,14 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Version Control System and `git`.
  - Local VCS Features:
-   - Branching
-   - Merging
-   - Managing conflicts
+   - [Initialise](https://github.com/sissa/scientific_programming_environment/blob/master/basic_git/initialize.md) 
+   - [Branching](https://github.com/sissa/scientific_programming_environment/blob/master/basic_git/branching.md)
+   - [Merging, conflicts.](https://github.com/sissa/scientific_programming_environment/blob/master/basic_git/merging.md)
 
 *Afternoon*
 
  - Distributed VCS Features:
-   - Managing remotes.
+   - [Managing remotes](https://github.com/sissa/scientific_programming_environment/blob/master/basic_git/github.md).
  - Python pills, I want to use pytoh to create a micro collaborative project.
    - Create a 3d graph with python.
  - Couple students two by two:
