@@ -100,7 +100,7 @@ In this course we want to establish a productive enviroment in scientific progra
       - [Pointes and References](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/pointers_and_references.md)
     - Pointers C++, fortran.
  - Intro to Memory Managemtn
-    - [Heap vs Stack](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/pointers_and_references.md) 
+    - [Heap vs Stack](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/heap_vs_stack_memory.md) 
     - Arrays C, C++, fortran.
 
 *Afternoon*
