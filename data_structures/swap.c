@@ -43,8 +43,6 @@ int main() {
     printf("pointer swap:\n");
     printf("a = %d\n", *pa);
     printf("b = %d\n", *pb);
-    
-    
      
     return 0;
 }
