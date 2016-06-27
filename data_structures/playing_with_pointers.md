@@ -65,7 +65,7 @@ int a = 5 , b = 7 ;
 swap(&a , &b ) ;
 /∗ now , a = 7 , b = 5 ∗/
 ```
-[Link to the code.](https://docs.google.com/spreadsheets/d/1MptsesSzsDzw1Fe_duE-5mXZXLd7dcGZ38tPD03p6N8/edit#gid=0)
+[Link to the code.](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/swap.c)
 
 
 Pure sadism assining an address to a pointer:
