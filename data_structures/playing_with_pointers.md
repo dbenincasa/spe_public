@@ -65,6 +65,9 @@ int a = 5 , b = 7 ;
 swap(&a , &b ) ;
 /∗ now , a = 7 , b = 5 ∗/
 ```
+[Link to the code.](https://docs.google.com/spreadsheets/d/1MptsesSzsDzw1Fe_duE-5mXZXLd7dcGZ38tPD03p6N8/edit#gid=0)
+
+
 Pure sadism assining an address to a pointer:
 ```
 char * p = (char *)0x28ff44;
