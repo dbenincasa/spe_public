@@ -50,24 +50,61 @@ The stack is attached to a thread, so when the thread exits the stack is reclaim
 
 The stack is faster because the access pattern makes it trivial to allocate and deallocate memory from it (a pointer/integer is simply incremented or decremented), while the heap has much more complex bookkeeping involved in an allocation or deallocation. Also, each byte in the stack tends to be reused very frequently which means it tends to be mapped to the processor's cache, making it very fast. Another performance hit for the heap is that the heap, being mostly a global resource, typically has to be multi-threading safe, i.e. each allocation and deallocation needs to be - typically - synchronized with "all" other heap accesses in the program.
 
-## Example
+
+## Example 0
 
 ```c
+#include <stdio.h>
+#include <stdlib.h>
+
+void fill_int(int *p)
+{
+     int a=5; 
+     p=&a;
+}
+
+int main()
+{
+   int *p;
+   fill_int(p);
+   printf("%d \n",*p);
+   return 0;
+}
+```
+
+## Example 1
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
 int foo()
 {
-  char *pBuffer; //<--nothing allocated yet (excluding the pointer itself, which is allocated here on the stack).
-  bool b = true; // Allocated on the stack.
-  if(b)
+  int* pBuffer; // nothing allocated yet (excluding the pointer itself, which is allocated here on the stack).
+  int b = 0; // Allocated on the stack.
+  if(b==0)
   {
     //Create 500 bytes on the stack
     char buffer[500];
 
     //Create 500 bytes on the heap
-    pBuffer = new char[500];
+    
+    pBuffer= (int*)malloc(500*sizeof(int));
+    
+    //pBuffer = new char[500];
 
-   }//<-- buffer is deallocated here, pBuffer is not
-}//<--- oops there's a memory leak, I should have called delete[] pBuffer;
+   }// buffer is deallocated here, pBuffer is not
+}// oops there's a memory leak, I should have called delete[] pBuffer;
+
+int main()
+{
+   foo();
+   return 0;
+}
 ```
-
+Compile, and run with:
+```
+valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./a.out
+```
 
 
