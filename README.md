@@ -95,7 +95,10 @@ In this course we want to establish a productive enviroment in scientific progra
 *Morning*
 
  - [Intro on data structures.](https://github.com/sissa/scientific_programming_environment/tree/master/data_structures)
-    - Pointers C, C++, fortran.
+    - Pointers in C
+      - [Intro](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/playing_with_pointers.md)
+      - [Pointes and References](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/pointers_and_references.md)
+    - Pointers C++, fortran.
     - Arrays C, C++, fortran.
 
 *Afternoon*
