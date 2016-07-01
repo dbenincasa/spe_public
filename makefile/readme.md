@@ -1,21 +1,36 @@
 # Makefile
 
-## Ex1
+## Ex1: target, dependences, recipie.
+Suppose you have a main file `main.c` and a 
+`funcs.c` file conaining the functions you implemented.
 
+You would like to have a `target`, your executable, that 
+has two `dependencies`, your source files. The target is the 
+result of a `recipie`, meaning, your command to compile your executable.
+
+A simple graph representing the situation follows:
 ```
                    |-----------------|
                    | target: program |
                    |-----------------|
                             /\
-                    _______/  \______
-                   /                 \
-                  /                   \
-                  |                   |
-                  V                   V
-|-----------------------|     |---------------------|
-| dependence: program.c |     | dependence: funcs.c |
-|-----------------------|     |---------------------|
-
+                           /  \
+                          /    \
+                         V      V 
+ |-----------------------|      |---------------------|
+ | dependence: program.c |      | dependence: funcs.c |
+ |-----------------------|      |---------------------|
+```
+The makefile provides a language to combine, `targets`, `dependencies` , 
+and `recipies`:
+```
+target: dependencie_0.c dependencie_1.c
+tab-space recipie 
+```
+Mutatis mutandis:
+```
+program: program.c funcs.c
+	gcc -o program program.c funcs.c
 ```
 
 ## Ex2
