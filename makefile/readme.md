@@ -35,6 +35,27 @@ program: program.c funcs.c
 
 ## Ex2
 
+In the second exercise we expand the first makefile, in 
+such a way that if we modifay only the one source file, only the corresponding 
+object file is created:
+
+
+We firste define the linking phase:
+```
+program: program.o funcs.o
+	gcc -o program program.o funcs.o
+```
+Then we have the compilation of each object file, following the `targets`, `dependencies` , 
+and `recipies` scheme.
+```
+program.o: program.c
+	gcc -c program.c
+
+funcs.o: funcs.c
+	gcc -c funcs.c
+```
+
+
 ## Ex3: Macros
 
 Onece we understood the mechanics of a Makefile, there are 
