@@ -5,7 +5,7 @@ Initialise a first commit on a sample file.
 $ git init
 $ vim first.txt
 $ git add first.txt 
-$ git commit -a -m "first"
+$ git commit -m "first"
 [master 2d0a6f1] first
  1 file changed, 3 insertions(+), 5 deletions(-)
 ```
@@ -14,7 +14,8 @@ Suppose you need to test a new feature before merging  it.
 $ git checkout -b test_new
 Switched to a new branch 'test_new'
 $ vim first.txt
-$ git commit -a -m "added test"
+$ git add first.txt
+$ git commit -m "added test"
 [test_new 14727a5] added test
  1 file changed, 1 insertion(+)
 ```
@@ -50,7 +51,7 @@ vim first.txt
 git add first.txt
 ```
 ```
-$ git commit -a -m "first commit"
+$ git commit -m "first commit"
 [master (root-commit) 573d299] first commit
  1 file changed, 3 insertions(+)
  create mode 100644 first.txt
@@ -61,8 +62,9 @@ Switched to a new branch 'hotfix'
 ```
 correct a previously edited line.
 ```
-$ vim first.txt 
-$ git commit -a -m "correction on hotfix" 
+$ vim first.txt
+$ git add first.txt
+$ git commit -m "correction on hotfix" 
 [hotfix 82d4d56] correction on hotfix
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -73,7 +75,7 @@ Switched to branch 'master'
 append some stext
 ```
 $ echo "some text" >> first.txt 
-$ git commit -a -m "second on master"
+$ git commit -m "second on master"
 [master c0391db] second on master
  1 file changed, 3 insertions(+)
 ```
@@ -106,16 +108,18 @@ $ git log --oneline --decorate --graph --all
 ```
 $ git checkout -b correction
 Switched to a new branch 'correction'
-$ vim first.txt 
-$ git commit -a -m "corrected one line"
+$ vim first.txt
+$ git add first.txt
+$ git commit -m "corrected one line"
 ][correction 4dcce33] corrected one line
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 ```
 $ git checkout master
 Switched to branch 'master'
-$ vim first.txt 
-$ git commit -a -m "edited the same line"
+$ vim first.txt
+$ git add first.txt
+$ git commit -m "edited the same line"
 [master dc119bc] edited the same line
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
