@@ -96,4 +96,4 @@ $ git commit -m "first commit"
 
 The developed repository is only local at the moment. Suppose we want to add a remote copy of our repository. To do this we sign in on github, and create a repository with the very same name (to simplify things) of our local repo, see the image:
 
-![some text](./figures/create_repo.tiff)
+![some text](./figures/create_repo.png)
