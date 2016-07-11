@@ -134,7 +134,7 @@ index 904fbfa..38f9d0e 100644
 Now add the changes and commit.
 ```
 $ git add first.txt 
-mac-venier:git_ex_0 nicola$ git commit -m "first commit "
+$ git commit -m "first commit "
 [master (root-commit) f8e26ec] first commit
  1 file changed, 3 insertions(+)
  create mode 100644 first.txt
