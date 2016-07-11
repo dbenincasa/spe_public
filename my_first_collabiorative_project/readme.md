@@ -241,6 +241,9 @@ To https://github.com/nicolacavallini/my_first_collaborative_project.git
    5b01174..047fddf  master -> master
 ```
 
+![some text](./figures/unmerged_branches.png)
+
+
 `BStudent` now takes the responsibility to merge the work together. 
 
 
@@ -280,5 +283,10 @@ Merge made by the 'recursive' strategy.
 The very same process can be operated on the work done by `AStudent`:
 
 ```
+$ git pull origin b_modification 
+```
 
+
+```
+$ git push origin master 
 ```
