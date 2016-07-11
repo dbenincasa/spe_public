@@ -93,3 +93,7 @@ $ git commit -m "first commit"
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 very_interesting_text.txt
 ```
+
+The developed repository is only local at the moment. Suppose we want to add a remote copy of our repository. To do this we sign in on github, and create a repository with the very same name (to simplify things) of our local repo, see the image:
+
+![some text](./figures/create_repo.tiff)
