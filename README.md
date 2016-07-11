@@ -22,6 +22,7 @@ In this course we want to establish a productive enviroment in scientific progra
    - `git add`
    - `git commit`
    - The magic of recovering a file in git.
+     - `rm -rf *` e recuperi poi tutto. 
 
 ## Tuesday 20 Septeber 2016
 
