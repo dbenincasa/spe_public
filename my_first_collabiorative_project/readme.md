@@ -11,19 +11,19 @@ Meanwhile BStudent calls up AStudent. BStudent
 tells him he will improve this part of the text, 
 he will do this on a different branch so that he 
 will not interfere with AStudent’s work.
-*PLACE HOLDER*
+*PLACE HOLDER: BSTUDENT HAS A CRUCIAL IMPROVEMENT*
 
 AStudent suddenly realises that there is a 
 very nice text, that copes very nicely with 
 what BStudent is about to write. This is why 
 he is creating a new branch and writing 
 his text here. 
-*PLACE HOLDER*
+*PLACE HOLDER: ASTUDENT'S TEXT*
 
 Before merging the two branches, AStudent
 writes a very nice conclusion for the document
 and commits it.
-*PLACE HOLDER*
+*PLACE HOLDER: ASTUDENT'S TEXT*
 ```
 
 ## Collaborative Development
@@ -145,21 +145,7 @@ Switched to a new branch 'b_modification'
 ```
 
 
-`BStudent` operates his modification:
-
-```
-$ git diff
-diff --git a/very_interesting_text.txt b/very_interesting_text.txt
-index 2e9fe27..3b70c6d 100644
---- a/very_interesting_text.txt
-+++ b/very_interesting_text.txt
-@@ -13,7 +13,7 @@ very nice text, that copes very nicely with
- what BStudent is about to write. This is why 
- he is creating a new branch and writing 
- his text here. 
--*PLACE HOLDER*
-+Some smart contrubution by BStudent
-```
+`BStudent` edits his modification.
 
 ```
 $ git status
@@ -187,15 +173,15 @@ $ git checkout -b a_modification
 Switched to a new branch 'a_modification'
 $ git diff
 diff --git a/very_interesting_text.txt b/very_interesting_text.txt
-index 2e9fe27..6b4168c 100644
+index 5f74e97..0e4cce7 100644
 --- a/very_interesting_text.txt
 +++ b/very_interesting_text.txt
 @@ -13,7 +13,7 @@ very nice text, that copes very nicely with
  what BStudent is about to write. This is why 
  he is creating a new branch and writing 
  his text here. 
--*PLACE HOLDER*
-+This text really couples nicely.
+-*PLACE HOLDER: ASTUDENT'S TEXT*
++This is a text that couples well with Bstudent's
 ```
 
 ```
@@ -244,7 +230,18 @@ To https://github.com/nicolacavallini/my_first_collaborative_project.git
 ![some text](./figures/unmerged_branches.png)
 
 
-`BStudent` now takes the responsibility to merge the work together. 
+`BStudent` now takes the responsibility to merge the work together. To do so he has to `fetch` the informations on the remote branch:
+
+```
+$ git fetch
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 3), reused 5 (delta 2), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+From https://github.com/nicolacavallini/my_first_collaborative_project
+ * [new branch]      a_modification -> origin/a_modification
+   edda7a7..b74ff8f  master     -> origin/master
+```
 
 
 `Bstudent` goes back on `master` and starts merging the work together:
@@ -259,10 +256,8 @@ Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
 Git is warning `BStudent` that his local branch is not up to date. To do so `BStudent` needs to `pull` from the remote:
 
 ```
-$ git pull origin master
-From https://github.com/nicolacavallini/my_first_collaborative_project
- * branch            master     -> FETCH_HEAD
-Updating 5b01174..047fddf
+$ git merge origin/master 
+Updating edda7a7..b74ff8f
 Fast-forward
  very_interesting_text.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -271,9 +266,7 @@ Fast-forward
 `BStudent` can merge the work he did. A default message will appear, committing the merging operation into a new commit:
 
 ```
-$ git pull origin b_modification 
-From https://github.com/nicolacavallini/my_first_collaborative_project
- * branch            b_modification -> FETCH_HEAD
+$ git merge b_modification 
 Auto-merging very_interesting_text.txt
 Merge made by the 'recursive' strategy.
  very_interesting_text.txt | 2 +-
@@ -283,10 +276,16 @@ Merge made by the 'recursive' strategy.
 The very same process can be operated on the work done by `AStudent`:
 
 ```
-$ git pull origin b_modification 
+$ git merge origin/a_modification 
+Auto-merging very_interesting_text.txt
+Merge made by the 'recursive' strategy.
+ very_interesting_text.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
 
 ```
 $ git push origin master 
 ```
+
+![some text](./figures/merged_history.png)

@@ -4,7 +4,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
 ## Learning Goals 
 
-## Monday 19 Septeber 2016
+## Monday 19 September 2016
 
 *Morning*
 
@@ -24,7 +24,7 @@ In this course we want to establish a productive enviroment in scientific progra
    - The magic of recovering a file in git.
      - `rm -rf *` e recuperi poi tutto. 
 
-## Tuesday 20 Septeber 2016
+## Tuesday 20 September 2016
 
 *Morning*
 
@@ -38,13 +38,13 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Distributed VCS Features:
    - [Managing remotes](https://github.com/sissa/scientific_programming_environment/blob/master/basic_git/github.md).
- - Python pills, I want to use pytoh to create a micro collaborative project.
+ - Python pills, I want to use python to create a micro collaborative project.
    - Create a 3d graph with python.
  - Couple students two by two:
    - One guy creates the function.
    - The other one creates the graphics I would check the history here and control the the two members effectively collaborated.
 
-## Wednesday 21 Septeber 2016
+## Wednesday 21 September 2016
 
 *Morning*
 
@@ -56,7 +56,7 @@ In this course we want to establish a productive enviroment in scientific progra
  - Python introductory notebook.
  - Some buffer space
 
-## Thursday 22 Septeber 2016
+## Thursday 22 September 2016
 
 *Morning*
 
@@ -64,24 +64,24 @@ In this course we want to establish a productive enviroment in scientific progra
    - Algorithm with no theory
    - Assembly
    - ...
- - Present an example software that implements P1 Finite Elments.
+ - Present an example software that implements P1 Finite Elements.
    - Organise 3-4 teams, of 3-4 people each component should write 30-40 lines.
 
 *Afternoon*
 
  - Develop
 
-## Friday 23 Septeber 2016
+## Friday 23 September 2016
 
 *Morning*
 
  - Develop
 
-## Monday 26 Septeber 2016
+## Monday 26 September 2016
 
 *Morning*
 
- - Compiled Languagies.
+ - Compiled Languages.
  - My first C code.
  - My first C++ code.
     - C and C++ differences. 
@@ -91,16 +91,16 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Buffer for developing.
 
-## Tuesday 27 Septeber 2016
+## Tuesday 27 September 2016
 
 *Morning*
 
  - [Intro on data structures.](https://github.com/sissa/scientific_programming_environment/tree/master/data_structures)
     - Pointers in C
       - [Intro](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/playing_with_pointers.md)
-      - [Pointes and References](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/pointers_and_references.md)
+      - [Pointers and References](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/pointers_and_references.md)
     - Pointers C++, fortran.
- - Intro to Memory Managemtn
+ - Intro to Memory Management
     - [Heap vs Stack](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/heap_vs_stack_memory.md) 
     - [Arrays C](https://github.com/sissa/scientific_programming_environment/blob/master/data_structures/pointers_and_arrays.md)
     - Arrays, C++, fortran.
@@ -109,7 +109,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Matrix Vector Multiplication C, C++, fortran.
 
-## Wednesday 28 Septeber 2016
+## Wednesday 28 September 2016
 
 *Morning*
 
@@ -120,7 +120,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - CMake to develop a library. 
 
-## Thursday 29 Septeber 2016
+## Thursday 29 September 2016
 
 *Morning*
 
@@ -131,7 +131,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Develop
 
-## Friday 30 Septeber 2016
+## Friday 30 September 2016
 
 *Morning*
 
