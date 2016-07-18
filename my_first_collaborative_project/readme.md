@@ -1,5 +1,10 @@
 # My First Collaborative Project
 
+First of all, choose who is `AStudent` and who is `BStudent`.
+
+For the first steps, `AStudent` works and `BStudent` looks at him.
+
+
 ## The Template Text
 
 ```
@@ -31,13 +36,6 @@ and commits it.
 
 This is meant to be a simple collaborative project between `AStudent` and `BStudent`.
 
-In this example case `AStudent=nicolacavallini`, `BStudent=teststudentmhpc`.
-
-```
-username = teststudentmhpc
-password = mhpc2016
-```
-
 `AStudent` creates a directory and cd in it:
 
 ```
@@ -46,6 +44,13 @@ $ cd my_first_collabiorative_project
 ```
 
 Stats a new file called `very_interesting_text.txt` and edits the template text above.
+
+Before using git, we need to specify username and mail:
+
+```
+$ git config --global user.name "YOUR NAME"
+$ git config --global user.email "YOUR EMAIL ADDRESS"
+```
 
 Now `AStudent` starts version controlling this repository using git:
 
