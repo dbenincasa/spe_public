@@ -141,3 +141,34 @@ Becomes:
  clean:
 	rm $(EXE) *.o
  ```
+ 
+ ## Ex6: Target Specific variables
+ 
+[From the gnu documentation](https://www.gnu.org/software/make/manual/html_node/Target_002dspecific.html) 
+There is one more special feature of target-specific variables: when you define a target-specific variable that 
+variable value is also in effect for all prerequisites of this target, and all their prerequisites, etc. 
+(unless those prerequisites override that variable with their own target-specific variable value). 
+
+In `funcs.c` add the lines:
+
+```
+#ifdef DEBUG
+printf("This is the debug version of the function\n");
+#endif
+```
+
+In `main.c` add:
+
+```
+#ifdef DEBUG
+printf("This is the debug version of the main file\n");
+#endif
+```
+
+Then add the target specific variables to the Makefile:
+
+```
+debug: CFLAGS += -g -DDEBUG
+debug: $(EXEC)
+```
+
