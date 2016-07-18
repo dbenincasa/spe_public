@@ -338,7 +338,7 @@ In order to make the history clearer, the author of the patch stored on branch `
 
 ![some text](./figures/second_merge.png)
 
-The author goes on branch `conclusions` and double-check everithing is fetched
+The author goes on branch `conclusions` and double-check everything is fetched
 
 ```
 $ git checkout conclusions
