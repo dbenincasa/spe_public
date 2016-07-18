@@ -42,6 +42,7 @@ password = mhpc2016
 
 ```
 $ mkdir my_first_collabiorative_project
+$ cd my_first_collabiorative_project
 ```
 
 Stats a new file called `very_interesting_text.txt` and edits the template text above.
@@ -130,7 +131,7 @@ It is time for `BStudent` to join the game, first `AStudent` has to give him per
 
 ![some text](./figures/add_collab.png)
 
-Then `BStudent` clones his own local version of the repository:
+`BStudent` has to accept the invitation to collaborate, then he clones his own local version of the repository:
 
 ```
 $ git clone https://github.com/nicolacavallini/my_first_collaborative_project.git
@@ -288,4 +289,4 @@ Merge made by the 'recursive' strategy.
 $ git push origin master 
 ```
 
-![some text](./figures/merged_history.png)
+![merged history](./figures/merged_history.png)

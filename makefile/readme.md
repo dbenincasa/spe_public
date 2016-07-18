@@ -100,8 +100,30 @@ Becomes:
   
 ## Ex5: A Little Maquillage of the Makefile
 
- - Some useful macros.
- 
+ - With these macros:
+
+```
+EXE = program
+SRCS = program.c funcs.c
+OBJS = $(SRCS:.c=.o)
+
+LD=gcc
+LDOPTS=-o
+```
+The target:
+
+```
+program: program.o funcs.o
+	$(CC) -o program program.o funcs.o
+```
+
+Becomes:
+
+```
+$(EXE): $(OBJS)
+	$(LD) $(LDOPTS) $(EXE) $(OBJS)
+```
+
  - Additional targets.
  
  ```
