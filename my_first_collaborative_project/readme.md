@@ -254,6 +254,8 @@ To https://github.com/nicolacavallini/my_first_collaborative_project.git
  * [new branch]      conclusions -> conclusions
 ```
 
+If we take a look at the `Network`, under `Graphs` sheat, on github page we see the status of the for branches `master`, `a_modification`, `b_modification` and `conclusions`.
+
 ![some text](./figures/before_merge.png)
 
 
