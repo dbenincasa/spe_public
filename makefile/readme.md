@@ -9,6 +9,7 @@ has two `dependencies`, your source files. The target is the
 result of a `recipie`, meaning, your command to compile your executable.
 
 A simple graph representing the situation follows:
+
 ```
                    |-----------------|
                    | target: program |
@@ -21,13 +22,17 @@ A simple graph representing the situation follows:
  | dependence: program.c |      | dependence: funcs.c |
  |-----------------------|      |---------------------|
 ```
+
 The makefile provides a language to combine, `targets`, `dependencies` , 
 and `recipies`:
+
 ```
 target: dependencie_0.c dependencie_1.c
 tab-space recipie 
 ```
+
 Mutatis mutandis:
+
 ```
 program: program.c funcs.c
 	gcc -o program program.c funcs.c
@@ -41,12 +46,15 @@ object file is created:
 
 
 We firste define the linking phase:
+
 ```
 program: program.o funcs.o
 	gcc -o program program.o funcs.o
 ```
+
 Then we have the compilation of each object file, following the `targets`, `dependencies` , 
 and `recipies` scheme.
+
 ```
 program.o: program.c
 	gcc -c program.c
@@ -85,6 +93,7 @@ files
    - And many others...
 
 This translates in a very simple modification of the makefile:
+
 ```
 program.o: program.c
 	$(CC) $(CFLAGS) program.c
@@ -92,7 +101,9 @@ program.o: program.c
 funcs.o: funcs.c
 	$(CC) $(CFLAGS) funcs.c
 ```
+
 Becomes:
+
 ```
 %.o: %.c
 	$(CC) $(CFLAGS) $<
@@ -102,27 +113,27 @@ Becomes:
 
  - With these macros:
 
-```
-EXE = program
-SRCS = program.c funcs.c
-OBJS = $(SRCS:.c=.o)
+  ```
+  EXE = program
+  SRCS = program.c funcs.c
+  OBJS = $(SRCS:.c=.o)
 
-LD=gcc
-LDOPTS=-o
-```
-The target:
+  LD=gcc
+  LDOPTS=-o
+  ```
+  The target:
 
-```
-program: program.o funcs.o
-	$(CC) -o program program.o funcs.o
-```
+  ```
+  program: program.o funcs.o
+	  $(CC) -o program program.o funcs.o
+  ```
 
-Becomes:
+  Becomes:
 
-```
-$(EXE): $(OBJS)
-	$(LD) $(LDOPTS) $(EXE) $(OBJS)
-```
+  ```
+  $(EXE): $(OBJS)
+	  $(LD) $(LDOPTS) $(EXE) $(OBJS)
+  ```
 
  - Additional targets.
  
