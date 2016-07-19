@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS=-c
 
 EXE = program
-SRCS = main.c matrix_tools.c
+SRCS = main.c matrix_tools.c vector_tools.c
 OBJS = $(SRCS:.c=.o)
 
 # say that we want linking roules a little 

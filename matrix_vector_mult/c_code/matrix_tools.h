@@ -8,12 +8,12 @@ typedef struct matrix
     double* data;
 } matrix_t;
 
-void allocate(matrix_t *mat, unsigned int m, unsigned int n);
+void allocate_m(matrix_t *mat, unsigned int m, unsigned int n);
 
-void assign(matrix_t *mat, double offset);
+void assign_m(matrix_t *mat, double offset);
 
-void deallocate(matrix_t *mat);
+void deallocate_m(matrix_t *mat);
 
-void print(matrix_t *mat);
+void print_m(matrix_t *mat);
 
 #endif

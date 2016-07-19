@@ -3,14 +3,14 @@
 
 #include "matrix_tools.h"
 
-void allocate(matrix_t *mat, unsigned int m, unsigned int n)
+void allocate_m(matrix_t *mat, unsigned int m, unsigned int n)
 {
     mat->m = m;
     mat->n = n;
     mat->data=(double*)malloc(m*n*sizeof(double));
 };
 
-void assign(matrix_t *mat, double offset)
+void assign_m(matrix_t *mat, double offset)
 {
   unsigned int i = 0, j=0;
   
@@ -19,14 +19,14 @@ void assign(matrix_t *mat, double offset)
          mat->data[i*mat->n+j] = offset + i*mat->n+j;
 };
 
-void deallocate(matrix_t *mat)
+void deallocate_m(matrix_t *mat)
 {
    mat->m = 0;
    mat->n = 0;
    free(mat->data);
 };
 
-void print(matrix_t *mat)
+void print_m(matrix_t *mat)
 {
   unsigned int i = 0, j=0;
   

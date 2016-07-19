@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "matrix_tools.h"
+#include "vector_tools.h"
 
 int main() {
 
@@ -9,13 +10,17 @@ int main() {
     
     matrix_t a;    
 
-    allocate(&a,3,2);
+    allocate_m(&a,3,2);
+    assign_m(&a,5);
+    print_m(&a);
+    deallocate_m(&a);
     
-    assign(&a,5);
+    vector_t v; 
     
-    print(&a);
-    
-    deallocate(&a);
+    allocate_v(&v,3);
+    assign_v(&v,5);
+    print_v(&v);
+    deallocate_v(&v);
 
     return 0;
 }
