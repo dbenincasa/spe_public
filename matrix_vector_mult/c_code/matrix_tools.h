@@ -1,3 +1,6 @@
+#ifndef MATRIX_TOOLS_H
+#define MATRIX_TOOLS_H
+
 typedef struct matrix
 {
     unsigned int m; // # of rows
@@ -12,3 +15,5 @@ void assign(matrix_t *mat, double offset);
 void deallocate(matrix_t *mat);
 
 void print(matrix_t *mat);
+
+#endif
