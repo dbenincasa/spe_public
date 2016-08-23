@@ -3,9 +3,13 @@
 CC=gcc
 CFLAGS=-c
 
-EXE = program
-SRCS = main.c matrix_tools.c vector_tools.c
+TEST = testing.x
+TEST_SRC = main.c
+TEST_OBJ = $(TEST_SRC:.c=.o)
+
+SRCS = matrix_tools.c vector_tools.c
 OBJS = $(SRCS:.c=.o)
+
 
 # say that we want linking roules a little 
 # different
@@ -13,13 +17,13 @@ OBJS = $(SRCS:.c=.o)
 LD=gcc
 LDOPTS=-o
 
-all : $(EXE)
+test : $(TEST)
 
 debug: CFLAGS += -g -DDEBUG
-debug: $(EXE)
+debug: $(TEST)
 
-$(EXE): $(OBJS)
-	$(LD) $(LDOPTS) $(EXE) $(OBJS)
+$(TEST): $(TEST_OBJ) $(OBJS)
+	$(LD) $(LDOPTS) $(TEST) $(TEST_OBJ) $(OBJS)
 
 # Pattern rule, tells that
 # the target n.o dependes
@@ -31,4 +35,4 @@ $(EXE): $(OBJS)
 	$(CC) $(CFLAGS) $<
 
 clean:
-	rm $(EXE) *.o
+	rm *.x *.o

@@ -19,6 +19,21 @@ void assign_m(matrix_t *mat, double offset)
          mat->data[i*mat->n+j] = offset + i*mat->n+j;
 };
 
+void assign_zero_m(matrix_t *mat)
+{
+  unsigned int i = 0, j=0;
+  
+  for (i = 0; i< mat->m; i++)
+      for (j = 0; j< mat->n; j++)
+         mat->data[i*mat->n+j] = 0.;
+};
+
+void assign_ij(const unsigned int i, const unsigned int j, 
+               const double val, matrix_t *mat)
+{
+  mat->data[i*mat->n+j] = val;
+}
+
 void deallocate_m(matrix_t *mat)
 {
    mat->m = 0;
@@ -26,7 +41,7 @@ void deallocate_m(matrix_t *mat)
    free(mat->data);
 };
 
-void print_m(matrix_t *mat)
+void print_m( matrix_t *mat)
 {
   unsigned int i = 0, j=0;
   
@@ -42,3 +57,19 @@ void print_m(matrix_t *mat)
       printf("\n");
   }
 };
+
+
+void vmult( matrix_t *mat,  vector_t *v_in, vector_t *v_out )
+{
+
+  unsigned int i = 0, j=0;
+    
+  for (i = 0; i< mat->m; i++)
+  {
+      double sum = 0;
+      for (j = 0; j< mat->n; j++)
+         sum+= mat->data[i*mat->n+j] * v_in->data[j];
+
+      assign_i(i,sum,v_out);
+  }
+}
