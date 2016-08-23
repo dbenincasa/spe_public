@@ -46,6 +46,13 @@ void assign_zero_v(vector_t *vec)
          vec->data[i] = 0.;
 }
 
+void diff( vector_t *a_in, vector_t *b_in, vector_t *c_out)
+{
+  unsigned int i = 0;
+  
+  for (i = 0; i< c_out->size; i++)
+         c_out->data[i] = a_in->data[i] - b_in->data[i];
+}
 
 void prod( vector_t *a_in, vector_t *b_in, vector_t *c_out)
 {
@@ -53,6 +60,14 @@ void prod( vector_t *a_in, vector_t *b_in, vector_t *c_out)
   
   for (i = 0; i< c_out->size; i++)
          c_out->data[i] = a_in->data[i] * b_in->data[i];
+}
+
+void dump_b_into_a( vector_t *a_in, vector_t *b_in)
+{
+  unsigned int i = 0;
+  
+  for (i = 0; i< b_in->size; i++)
+         a_in->data[i] = b_in->data[i];
 }
 
 double sum_prod( vector_t *a_in, vector_t *b_in)
@@ -66,3 +81,35 @@ double sum_prod( vector_t *a_in, vector_t *b_in)
   return sum;
 }
 
+void scale(vector_t *a_in, double val)
+{
+  unsigned int i = 0;
+  
+  for (i = 0; i< a_in->size; i++)
+         a_in->data[i] *= val;
+}
+
+void a_equals_a_minus_alpha_b(vector_t *a_in, vector_t *b_in, double alpha)
+{
+  unsigned int i = 0;
+  
+  for (i = 0; i< b_in->size; i++)
+         a_in->data[i] -= alpha*b_in->data[i];
+
+}
+
+void a_equals_a_plus_alpha_b(vector_t *a_in, vector_t *b_in, double alpha)
+{
+  unsigned int i = 0;
+  
+  for (i = 0; i< b_in->size; i++)
+         a_in->data[i] += alpha* b_in->data[i];
+}
+
+void a_equals_b_plus_alpha_a(vector_t *a_in, vector_t *b_in, double alpha)
+{
+  unsigned int i = 0;
+  
+  for (i = 0; i< b_in->size; i++)
+         a_in->data[i] = b_in->data[i] + alpha * a_in->data[i];
+}
