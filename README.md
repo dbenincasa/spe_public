@@ -125,7 +125,7 @@ In this course we want to establish a productive enviroment in scientific progra
 *Morning*
 
  - Read Matrix from Python
- - Implement conjugate gradient in C, C++, Fortran.
+ - (Implement conjugate gradient)[https://github.com/sissa/scientific_programming_environment/tree/master/matrix_vector_mult] in C, C++, Fortran.
 
 *Afternoon*
 
