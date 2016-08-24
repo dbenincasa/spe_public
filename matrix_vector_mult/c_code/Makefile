@@ -4,14 +4,14 @@ CC=gcc
 CFLAGS=-c
 
 SOLVER = solver.x
-SOLVER_SRC = solver.c
+SOLVER_SRC = test_solve.c
 SOLVER_OBJ = $(SOLVER_SRC:.c=.o)
 
 TEST = testing.x
 TEST_SRC = test.c
 TEST_OBJ = $(TEST_SRC:.c=.o)
 
-SRCS = matrix_tools.c vector_tools.c
+SRCS = matrix_tools.c vector_tools.c solver.c
 OBJS = $(SRCS:.c=.o)
 
 
