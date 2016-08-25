@@ -1,0 +1,124 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Brief Article}
+\author{The Author}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+\section{Introduction}
+We write a brief paper meant to support \href{http://www.mhpc.it/}{MHPC} 
+lectures on scientific programming environment. The goal of this classes 
+is to provide students scientific programming tools to develop scientific applications. 
+The author is an engineer, with a Ph.D. in numerical analysis and hopefully these brief 
+notes will hold the best habits of these two education paths. Achieving my goal no 
+matter what, and in the most efficient way. Being passionate about sophisticated 
+mathematical structures. Finite Elements is method that allows me to express my passion 
+about mathematics, and meanwhile teach best programming practices. I apologise 
+I can't teach programming something that does not stimulate my curiosity.
+
+\section{Strong Problem}
+Scientists solve problems. Among the pletora of existing problems 
+we need to pick one, simple enough to be solved during te time dedicated to a single 
+class, and sophisticated enough to be representative for more sophisticated ones. 
+The answer is the Poisson's problem,
+modeling the diffusion of temperature in a body.
+
+Given a domain $\Omega\subset \mathbb{R}^2$.
+Find $u$ such that:
+\[
+\left\{
+\begin{array}{ll}
+u -\Delta u = f & \mathrm{in}\ \Omega \\
+\nabla u \cdot \mathbf{n} = 0  & \mathrm{on}\ \partial\Omega
+\end{array}
+\right.
+\]
+Just a couple of remarks:
+\[
+\nabla u \cdot \mathbf{n}  = \partial_{x} u \cdot n_x+ \partial_{y} u \cdot n_y,
+\]
+\[
+\Delta u = \partial_{xx} u + \partial_{yy} u,
+\]
+where $x$ and $y$ are the two coordinates in $\mathbb{R}^2$, and $\mathbf{n}$ 
+is the outer normal to the domain.
+
+In other words, the Poisson's problem is asking for a type of solution 
+that is characterised by having two continuous derivatives, in mathematical 
+sense we ask for $u\in C^2$. \emph{It can be proved} that such a solution exists and 
+is unique. It is also true that such a solution can be \emph{found} in simple and
+specific cases. In the next section we explore an alternative strategy.
+
+\section{Continous Weak Problem}
+In the previous section we looked at the Poisson's problem and noticed that searching 
+for its solution in a strong form requires looking for a $C^2$ solution. This requirement 
+is that strong, that can be fulfilled only in simple cases. 
+The Finite Element (Method) si not really a method, it is rather the art of looking 
+for solutions in vector spaces simpler than the one needed by the strong form.
+
+We understand that a key role is played by the space $V$ substituting 
+the $C^2$ space. Assuming $V$ is continuous (has an infinite set of basis 
+functions) the first idea is to project the problem onto this particular space. 
+Mathematically this is written as:
+\[
+\int_\Omega u\, v -\int_\Omega \Delta u\, v = \int_\Omega f\, v \quad \forall v \in V
+\]
+If the projection procedure in functional spaces looks cryptical 
+we can compare it to the geometrical projection. Consider $u$ a vector 
+and $V$ the $\mathbb{R}^2$ space. The projection of $u$ onto $V$ is
+\[
+u = u_1 \cdot \mathbf{e}_1 + u_2 \cdot \mathbf{e}_2,
+\]
+being $\mathbf{e}_1$, $\mathbf{e}_2$ the basis vectors for $V = \mathbb{R}^2$.
+The analogy here should be clear once we think that $\mathbf{e}_i$ play the 
+same role as $v$.  
+
+If we want to really get rid of the second derivatives in our problem we can 
+integrate by parts:
+\[
+\int_\Omega u\, v +
+\int_\Omega \nabla u \cdot \nabla v - 
+\int_{\partial \Omega} u \,\nabla v \cdot \mathbf{n} = \int_\Omega f\, v.
+\]
+The boundary integral term looks more nasty than it actually is. 
+Nevertheless we have picked a problem simple enough to postpone the 
+discussion on boundary conditions. On the boundary integral we have just
+the same flux term that we asked to be zero at the boundary, meaning, our 
+integral goes to zero.
+\[
+\int_\Omega u\, v +
+\int_\Omega \nabla u \cdot \nabla v = \int_\Omega f\, v.
+\]
+
+For simplicity, we look for $u$ in the very same space as $v$. 
+Notice that this is a choice that works pretty well in this case, but
+remember, Finite Elements is an art, not a method. The weak formulation 
+of our original problem, looks like:
+
+Find $u\in V$, such that:
+\[
+\int_\Omega u\, v +
+\int_\Omega \nabla u \cdot \nabla v = \int_\Omega f\, v.
+\]
+
+The relation between the weak problem and the strong one 
+is clarified by the Lax-Milgram theorem. This proofs 
+that the weak form is equivalent to the strong one, meaning 
+we can approximate the continuous weak problem to get the solution 
+of the strong one.
+
+
+\end{document}  
