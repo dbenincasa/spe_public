@@ -1,0 +1,34 @@
+\documentclass{standalone}
+\usepackage[pdf]{pstricks}
+\usepackage[crop=off]{auto-pst-pdf}
+% \usepackage[usenames,dvipsnames]{pstricks}
+% \usepackage{epsfig}
+% \usepackage{pst-grad} % For gradients
+% \usepackage{pst-plot} % For axes
+% \usepackage[space]{grffile} % For spaces in paths
+% \usepackage{etoolbox} % For spaces in paths
+% \makeatletter % For spaces in paths
+% \patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+% \makeatother
+% % User Packages:
+% 
+% 
+\begin{document}
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-3.38724)(9.593544,3.38724)
+\definecolor{colour0}{rgb}{0.38431373,0.5372549,0.99215686}
+\definecolor{colour1}{rgb}{0.46666667,0.6784314,0.96862745}
+\pspolygon[linecolor=black, linewidth=0.04, fillstyle=solid,fillcolor=colour0](0.04519226,-0.16276)(4.8451924,-3.36276)(8.045193,-0.96276003)(2.4451923,0.63724)
+\pspolygon[linecolor=black, linewidth=0.04, fillstyle=solid,fillcolor=colour1, opacity=0.4509804](3.2451923,-0.96276003)(4.8451924,-1.76276)(4.8451924,3.03724)
+\rput[bl](4.5,-2.9){\Large{$V_h$}}
+\rput[bl](5.0,2.9){\Large{$u$}}
+\rput[bl](4.95,-1.9){\Large{$u_h$}}
+\rput[bl](2.6,-1.0){\Large{$v_h$}}
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{<-}(8.7,-1.7)(8.7,-3.3)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(8.7,-3.3)(7.1,-2.5)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(8.7,-3.3)(9.5,-2.5)
+\end{pspicture}
+}
+\end{document}
+
