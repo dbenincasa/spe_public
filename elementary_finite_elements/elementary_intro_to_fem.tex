@@ -168,15 +168,34 @@ between $u$ and any $v_h$.}
 \label{fig:cea_lemma}
 \end{figure}
 
+\section{Computational Solution of the Discrete Problem}
+
 The first step toward the discretisation of the problem, is the discretisation 
 of the domain. In Figure~\ref{fig:mesh} we represent the domain $\Omega$ and its 
-discretisation, namely the triangulation $\mathcal{T}_h$ .
+discretisation, namely the triangulation $\mathcal{T}_h$. In this lecture notes we are 
+going to consider triangular elements and linear shape functions. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.3]{mesh.png}
-\caption{Mesh.}
+\caption{A typical domain discretisation, in this case the original 
+domain is a quarter of a circle.}
 \label{fig:mesh}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.8]{local_shape_funcs-pics.pdf}
+\caption{Local linear shape functions on a triangular element.}
+\label{fig:local}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.4]{tent.png}
+\caption{Global shape function on a domain. We can notice how the 
+interelement continuity is achieved.}
+\label{fig:tent}
 \end{figure}
 
 \begin{figure}[h]
