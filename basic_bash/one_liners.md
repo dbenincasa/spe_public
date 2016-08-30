@@ -28,8 +28,10 @@ $ cat /proc/cpuinfo | grep 'core id' | sort | uniq -c
 $ cat /proc/cpuinfo |  sed -r 's/(processor)(.*)([0-9]+)/echo "\1\2$((\3+1))"/ge'
 ```
 
-Exercises
-1.	Find the 5 largest file inside one directory (and subdirectories of course)
-2.	Find the 10 most used commands on ~/.bash_history
+# Exercises
+
+1. Find the 5 largest file inside one directory (and subdirectories of course)
+
+2. Find the 10 most used commands on ~/.bash_history
 
 
