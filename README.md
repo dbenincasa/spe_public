@@ -15,7 +15,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
  - Basic Bash
    - [Ex 1](https://github.com/sissa/scientific_programming_environment/blob/master/basic_bash/ex1.md)
-   - [Ex 2](https://github.com/sissa/scientific_programming_environment/blob/master/basic_bash/ex2.md)
+   - [Ex 2](https://github.com/sissa/scientific_programming_environment/blob/master/basic_bash/sed.md)
  - Create a simple bash script.
  - Local action using `git`.
    - `git init`
