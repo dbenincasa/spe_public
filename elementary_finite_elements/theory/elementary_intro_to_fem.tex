@@ -5,6 +5,14 @@
 %\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}
 
+\usepackage{listings}
+
+
+\usepackage{fontspec}
+\usepackage{minted}
+
+%\setsansfont{Calibri}
+%\setmonofont{Consolas}
 
 \usepackage{pstricks}
 
@@ -18,7 +26,41 @@
 \author{The Author}
 %\date{}                                           % Activate to display a given date or no date
 
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
 \begin{document}
+\renewcommand{\theFancyVerbLine}{
+  \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
 \maketitle
 %\section{}
 %\subsection{}
@@ -487,4 +529,53 @@ c\\
 \phi_3(x_2,y_2)  & =  a\, x_2 + b\, y_2 + c  =  0 \\
 \phi_3(x_3,y_3)  & =  a\, x_3 + b\, y_3 + c  =  1 \\
 \end{align*}
-\end{document}  
+
+\section{Assemble Coding Hints}
+There are plenty of ways to write the same thing. Coding is all about 
+style. \emph{It Works!} is a good thing, but sometimes this may collide 
+the sense of good style. The assembly code is a great way to exemplify 
+bad and good styles. Of course the style depends on the language. 
+Of course the style depends on the goal of our piece of code. 
+
+Let's start with a \texttt{c-like} python code for the assembly, in 
+Listing~\ref{lst:assembly-00}. This piece of code is good to get 
+the mechanics of what we are asking to the computer. It probably 
+works, the author did not try it. On the other hand the author finds it 
+aesthetically terrible. Python is an interpreted language and does not 
+really get on well with for loops. Moreover to the taste of the author they 
+do really look too much old fashioned. The reader can appreciate how 
+the python syntax helps programmers to develop elegant and readable code.
+
+
+
+\begin{listing}[H]
+\begin{minted}[mathescape,
+               linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{python}
+               
+
+  def gradu_gradv(topo,x,y):
+    A = np.zeros((x.shape[0],x.shape[0]))
+    for element in topo:
+        x_l = x[element]
+        y_l = y[element]
+        (dx_phi,dy_phi,phi,surf_e) = tri_p1(x_l,y_l,np.zeros((1,2)))
+        local_matrix = np.zeros((3,3))
+        for i in range(0,3):
+            for j in range(0,3):
+                local_matrix[i,j] += surf_e *\ 
+                (dx_phi[i]*dx_phi[j] + dy_phi[i]*dy_phi[j] )
+            
+        for i in range(0,3):
+            for j in range(0,3):
+                A[element[i],element[j]] += local_matrix[i,j]
+
+    return A
+\end{minted}
+\caption{Example of a listing.}
+\label{lst:assembly-00}
+\end{listing}
+\end{document}
