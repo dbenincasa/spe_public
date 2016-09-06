@@ -22,8 +22,8 @@
 \usepackage{hyperref}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\title{Brief Article}
-\author{The Author}
+\title{Programming Finite Elements}
+\author{Nicola Cavallini}
 %\date{}                                           % Activate to display a given date or no date
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -546,8 +546,6 @@ really get on well with for loops. Moreover to the taste of the author they
 do really look too much old fashioned. The reader can appreciate how 
 the python syntax helps programmers to develop elegant and readable code.
 
-
-
 \begin{listing}[H]
 \begin{minted}[mathescape,
                linenos,
@@ -578,4 +576,95 @@ the python syntax helps programmers to develop elegant and readable code.
 \caption{Example of a listing.}
 \label{lst:assembly-00}
 \end{listing}
+
+Lines 7 to 11 are really horrible. At least horrible in a \emph{pythonc} sense. 
+Our goal is to get:
+\[
+a_{ij}
+= \mathrm{area}(K)\left(
+\underbrace{\left(
+\begin{array}{c}
+\partial_x \phi_1\\
+\partial_x \phi_2\\
+\partial_x \phi_3
+\end{array}\right)
+\left(
+\begin{array}{ccc}
+\partial_x \phi_1&
+\partial_x \phi_2&
+\partial_x \phi_3
+\end{array}
+\right)}_{\mathtt{local\_x}}
++
+\underbrace{
+\left(
+\begin{array}{c}
+\partial_y \phi_1\\
+\partial_y \phi_2\\
+\partial_y \phi_3
+\end{array}\right)
+\left(
+\begin{array}{ccc}
+\partial_y \phi_1&
+\partial_y \phi_2&
+\partial_y \phi_3
+\end{array}
+\right)}_{\mathtt{local\_y}}
+\right)
+\]
+If we focus on the operands we recognise that we can get the local $x$ contribution and 
+the local $y$ contribution as vector multiplication. En elegant code would reflect this 
+mathematical property, and of course the closer to the mathematics is the code, the 
+easier is to find errors. The most elegant solution we can think of, is using the 
+Einstein notation. Consider the one dimensional array 
+$\partial_x \phi_i$ with $i = 1\ldots 3$ then:
+\[
+\mathtt{local\_x}_{i,j} = \partial_x \phi_i\, \partial_x \phi_j
+\]
+The corresponding Numpy command is:
+\begin{minted}[mathescape,
+               linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{python}
+               
+
+  local_x = np.einsum('i,j->ij', dx_phi, dx_phi)
+\end{minted}
+The sophisticated part is to understand how the indices are combined 
+together. In this simple situation, \mintinline{python}{'i,j->ij'} the index 
+\texttt{i} runs over the first vector, and the index \texttt{j} over the second. 
+The entries are multiplied forming a two dimensional array. 
+The situation is analogous for $\mathtt{local\_y}_{i,j}$. 
+
+Also lines 13 to 15 are really bad. The situation would become easier if we had
+a one dimensional array  of row indices (\texttt{rows}) and a one dimensional array of 
+column indices (\texttt{cols}).
+Consider the \texttt{element=[5,6,7]}, the expected \texttt{cols=[5,6,7,5,6,7,5,6,7]}. 
+This last one dimensional array can be considered the \texttt{flatten} version of 
+\texttt{cols=[[5,6,7][5,6,7][5,6,7]]}. The two dimensional version of the array 
+\texttt{cols} ca be considered as the product of a mesh operation of the 
+\texttt{element} array with itself. In a more clear way:
+\[
+\mathtt{cols,rows}=
+\left(
+\begin{array}{ccc}
+\texttt{5} & \texttt{6} & \texttt{7} \\
+\texttt{5} & \texttt{6} & \texttt{7} \\
+\texttt{5} & \texttt{6} & \texttt{7} \\
+\end{array}
+\right)\texttt{,}
+\left(
+\begin{array}{ccc}
+\texttt{5} & \texttt{5} & \texttt{5} \\
+\texttt{6} & \texttt{6} & \texttt{6} \\
+\texttt{7} & \texttt{7} & \texttt{7} \\
+\end{array}
+\right) = 
+\texttt{np.meshgrid(element,element)}
+\]
+%Then  if you think 
+%you can \texttt{flatten} the two dimensional array local_matrix
+
 \end{document}

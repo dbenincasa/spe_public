@@ -64,7 +64,11 @@ class AssembleTest(unittest.TestCase):
         expected = np.array([[ 1.,-.5,-.5],[-.5,.5,0.],[-.5,0.,.5]])
         lm = gradu_gradv(topo , x , y)
         truth = matrix_almost_equal(lm,expected,3)
-#self.assertTrue(lists_almost_equal(truth,True)
+        self.assertTrue(truth)
+        f = f_v(topo,x,y)
+        expected = np.array([ 0.16666667,0.16666667,0.16666667])
+        truth = lists_almost_equal(f,expected,5)
+        self.assertTrue(truth)
         #self.assertItemsEqual(result, expected)
         #self.assertItemsEqual(b_nodes[:5], [0,4,5,6,7])
 
