@@ -119,7 +119,7 @@ In this course we want to establish a productive enviroment in scientific progra
 
 *Afternoon*
 
- - CMake to develop a library. 
+ - [CMake](https://github.com/sissa/scientific_programming_environment/tree/master/basic_cmake) to develop a library. 
 
 ## Thursday 29 September 2016
 
